@@ -14,13 +14,17 @@ tools:
   ]
 model: Claude Sonnet 4.5 (copilot)
 handoffs:
-  - label: Confirm
+  - label: Approve
     agent: Conductor
-    prompt: "I confirm the plan and am ready to proceed."
+    prompt: "I approve the current phase implementation and am ready to proceed."
+    send: true
+  - label: Review Again
+    agent: Conductor
+    prompt: "Please self-review the current phase implementation again."
     send: true
   - label: Request Changes
     agent: Conductor
-    prompt: "I request changes before continuing: {feedback}"
+    prompt: "I request changes before continuing: {spec}"
     send: false
 ---
 
